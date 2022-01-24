@@ -1,7 +1,7 @@
-package org.physics;
+package org.term2d.physics;
 
-import org.Epsilon;
-import org.geom.Point;
+import org.term2d.Epsilon;
+import org.term2d.geom.Point;
 
 public class Vec2 {
     private double x;

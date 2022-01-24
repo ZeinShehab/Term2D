@@ -1,4 +1,4 @@
-package org.geom;
+package org.term2d.geom;
 
 public interface Shape {
     public Rectangle getBounds();
@@ -17,7 +17,7 @@ public interface Shape {
     
     public double minY();
 
-    public void transform(org.physics.Vec2 vel);
+    public void transform(org.term2d.physics.Vec2 vel);
 
     public boolean isBoundary(Point p);
 

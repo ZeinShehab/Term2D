@@ -1,13 +1,13 @@
-package org.ui;
-
-import org.geom.Point;
-import org.geom.Rectangle;
-import org.geom.Shape;
+package org.term2d.ui;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Arrays;
+
+import org.term2d.geom.Point;
+import org.term2d.geom.Rectangle;
+import org.term2d.geom.Shape;
 
 public class Display {
     private final int WIDTH;
@@ -53,7 +53,10 @@ public class Display {
     public void set(int x, int y, Pixel p) {
         display[y * WIDTH + x] = p;
     }
-
+    /**
+     * Uses 2-row compression algorithm I stole from tsoding daily on youtube
+     * @throws IOException
+     */
     public void show() throws IOException {
         char[][] chars = {
             {' ', '_'},

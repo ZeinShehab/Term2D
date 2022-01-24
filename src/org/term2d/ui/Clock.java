@@ -1,4 +1,4 @@
-package org.ui;
+package org.term2d.ui;
 
 import java.util.concurrent.TimeUnit;
 

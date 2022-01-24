@@ -1,6 +1,6 @@
-package org.geom;
+package org.term2d.geom;
 
-import org.physics.Vec2;
+import org.term2d.physics.Vec2;
 
 public class Circle implements Shape {
     private Vec2 c;
