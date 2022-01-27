@@ -1,8 +1,11 @@
 package org.term2d.geom;
 
-import org.term2d.physics.Vec2;
+import java.util.NoSuchElementException;
 
-public class Rectangle implements Shape {
+import org.term2d.core.iterator.RectangleIterator;
+import org.term2d.core.physics.Vec2;
+
+public class Rectangle implements Shape, Iterable<Point> {
     private double x;
     private double y;
     private double width;
@@ -77,5 +80,42 @@ public class Rectangle implements Shape {
     @Override
     public boolean fill() {
         return fill;
+    }
+
+    @Override
+    public RectangleIterator iterator() {
+        return new RectangleIterator() {
+            private long limit = (long) (width * height);
+            private int index = -1;
+
+            @Override
+            public int colIndex() {
+                return (int) (index - rowIndex() * width);
+            }
+
+            @Override
+            public int rowIndex() {
+                return (int) (index / width);
+            }
+
+            @Override
+            public Point get() {
+                return new Point(colIndex() + x, rowIndex() + y);
+            }
+
+            @Override
+            public boolean hasNext() {
+                return index + 1 < limit;
+            }
+
+            @Override
+            public Point next() {
+                if (!hasNext())
+                    throw new NoSuchElementException();
+
+                index++;
+                return get();
+            }
+        };
     }
 }
