@@ -1,4 +1,4 @@
-package org.term2d.core.iterator;
+package org.term2d.iterator;
 
 import java.util.Iterator;
 

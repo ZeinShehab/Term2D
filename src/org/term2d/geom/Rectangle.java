@@ -2,8 +2,8 @@ package org.term2d.geom;
 
 import java.util.NoSuchElementException;
 
-import org.term2d.core.iterator.RectangleIterator;
-import org.term2d.core.physics.Vec2;
+import org.term2d.iterator.RectangleIterator;
+import org.term2d.physics.Vec2;
 
 public class Rectangle implements Shape, Iterable<Point> {
     private double x;
