@@ -2,33 +2,36 @@ package org.term2d.geom;
 
 import java.util.NoSuchElementException;
 
+import org.term2d.collision.GameObject;
 import org.term2d.iterator.RectangleIterator;
 import org.term2d.physics.Vec2;
 
-public class Rectangle implements Shape, Iterable<Point> {
-    private double x;
-    private double y;
-    private double width;
-    private double height;
+public class Rectangle extends GameObject implements Shape, Iterable<Point> {
+    Vec2 pos;
+    double width;
+    double height;
 
     private boolean fill;
 
-    public Rectangle(double x, double y, double width, double height) {
-        this.x = x;
-        this.y = y;
+    public Rectangle(Vec2 pos, double width, double height) {
+        this.pos = pos;
         this.width  = width;
         this.height = height;
         this.fill = true;
     }
+
+    public Rectangle(double x, double y, double width, double height) {
+        this(new Vec2(x, y), width, height);
+    }
  
     @Override
     public Rectangle getBounds() {
-        return new Rectangle(x, y, width, height);
+        return new Rectangle(pos, width, height);
     }
 
     @Override
     public boolean contains(Point p) {
-        return p.getX() >= x && p.getX() <= maxX() && p.getY() >= y && p.getY() <= maxY();
+        return p.x >= pos.x && p.x <= maxX() && p.y >= pos.y && p.y <= maxY();
     }
 
     @Override
@@ -43,34 +46,47 @@ public class Rectangle implements Shape, Iterable<Point> {
 
     @Override
     public double maxX() {
-        return x + width;
+        return pos.x + width;
     }
 
     @Override
     public double maxY() {
-        return y + height;
+        return pos.y + height;
     }
 
     @Override
     public double minX() {
-        return x;
+        return pos.x;
     }
 
     @Override
     public double minY() {
-        return y;
+        return pos.y;
     }
 
     @Override
     public void transform(Vec2 vel) {
-        x += vel.getX();
-        y += vel.getY();
+        pos.add(vel);
     }
 
     @Override
     public boolean isBoundary(Point p) {
-        return contains(p) && (p.x == x || p.y == y || p.x == maxX()-1 || p.y == maxY()-1);
+        return contains(p) && (p.x == pos.x || p.y == pos.y || p.x == maxX()-1 || p.y == maxY()-1);
     }
+
+    public boolean intersects(Rectangle rect) {
+		int x = (int) Math.max(pos.x, rect.pos.x);
+		int y = (int) Math.min(pos.y, rect.pos.y);
+
+		int height = (int) Math.min(
+							(rect.pos.y - y) + rect.height,
+							(pos.y - y) + this.height);
+		int width = (int) Math.min(
+							(rect.pos.x - x) + rect.width,
+							(pos.x - x) + this.width);
+
+        return !(width < 0 || height < 0);
+	}
 
     @Override
     public void fill(boolean fill) {
@@ -100,7 +116,7 @@ public class Rectangle implements Shape, Iterable<Point> {
 
             @Override
             public Point get() {
-                return new Point(colIndex() + x, rowIndex() + y);
+                return new Point(colIndex() + pos.x, rowIndex() + pos.y);
             }
 
             @Override
