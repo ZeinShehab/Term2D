@@ -1,4 +1,8 @@
 .vscode
-Test.java
+test/
 bin/
 assets/
+Test.java
+Balls.java
+test.sh
+balls.sh
