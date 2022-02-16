@@ -4,8 +4,13 @@ import org.term2d.Epsilon;
 import org.term2d.geom.Point;
 
 public class Vec2 {
-    private double x;
-    private double y;
+    public double x;
+    public double y;
+
+    public static final Vec2 up    = new Vec2(0, -1);
+    public static final Vec2 down  = new Vec2(0, 1);
+    public static final Vec2 left  = new Vec2(-1, 0);
+    public static final Vec2 right = new Vec2(1, 0); 
 
     public Vec2() {
         this(0, 0);
