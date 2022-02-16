@@ -3,14 +3,14 @@ package org.term2d;
 import java.util.concurrent.TimeUnit;
 
 public class Clock {
-    private final int FPS;
+    public final int FPS;
 
     public Clock(int fps) {
         this.FPS = fps;
     }
 
     public Clock() {
-        this.FPS = 30;
+        this.FPS = 60;
     }
 
     public void tick() throws InterruptedException {
