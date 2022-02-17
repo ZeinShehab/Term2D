@@ -1,8 +1,9 @@
 package org.term2d.geom;
 
+import org.term2d.game.GameObject;
 import org.term2d.physics.Vec2;
 
-public class Point implements Shape {
+public class Point extends GameObject implements Shape {
     protected double x;
     protected double y;
 
