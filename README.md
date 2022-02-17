@@ -6,10 +6,7 @@ or more towards game engine, maybe even both who knows?
 ---
 
 # Milestones
-- [ ] Simulate elastic collisions and normal collisions
-- [ ] Physics simulation for individual bodies
-- [ ] Mass and density for shapes
-- [ ] Keep track of all bodies/pixels in the display
+- [ ] Scriptable game objects
 - [ ] Read keyboard input (possibly mouse)
 - [ ] More shapes
 - [ ] Efficient   
@@ -17,7 +14,6 @@ or more towards game engine, maybe even both who knows?
 These are not selling points but are rather milestones for what the project hopes to accomplish.
 
 # TODO
+- [ ] Trello board
+- [ ] Simplify shape interface
 - [X] Rectangle iterator
-- [X] Draw images
-- [ ] Optimize image rendering speed
-- [ ] Add more accurate pixel shading for images
