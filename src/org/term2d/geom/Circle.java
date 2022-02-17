@@ -1,75 +1,69 @@
 package org.term2d.geom;
 
+import org.term2d.game.GameObject;
 import org.term2d.physics.Vec2;
 
-public class Circle implements Shape {
-    private Vec2 c;
-    private double r;
-    private double x;
-    private double y;
+public class Circle extends GameObject implements Shape {
+    public Vec2   center;
+    public double radius;
+
     private boolean fill;
 
-    public Circle(Vec2 c, double r) {
-        this.c = c;
-        this.r = r;
+    public Circle(Vec2 center, double radius) {
+        this.center = center;
+        this.radius = radius;
         this.fill = true;
-
-        Vec2 v = c.diff(Math.floor(r));
-        x = v.getX();
-        y = v.getY();
     }
 
     @Override
     public double minX() {
-        return x;
+        return center.x - radius;
     }
 
     @Override
     public double minY() {
-        return y;
+        return center.y - radius;
     }
 
     @Override
     public Rectangle getBounds() {
-        return new Square(x, y, r+r);
+        return new Square(center.diff(radius), radius+radius);
     }
 
     @Override
     public boolean contains(Point p) {
-        return c.distanceSq(new Vec2(p.x+0.5, p.y+0.5)) <= r*r;
+        return center.distanceSq(new Vec2(p.x+0.5, p.y+0.5)) <= radius*radius;
     } 
 
     @Override
     public double height() {
-        return r + r;
+        return radius + radius;
     }
 
     @Override
     public double width() {
-        return r + r;
+        return radius + radius;
     }
 
     @Override
     public double maxX() {
-        return x + r + r;
+        return center.x + radius;
     }
 
     @Override
     public double maxY() {
-        return y + r + r;
+        return center.y + radius;
     }
 
     @Override
     public void transform(Vec2 vel) {
-        c.add(vel);
-        x += vel.getX();
-        y += vel.getY();
-    }
+        center.add(vel);
+    } 
 
     @Override
     public boolean isBoundary(Point p) {
-        double distance = c.distanceSq(new Vec2(p.x+0.5, p.y+0.5));
-        return distance <= r*r && distance > r*r - r*2;
+        double distance = center.distanceSq(new Vec2(p.x+0.5, p.y+0.5));
+        return distance <= radius*radius && distance > radius*radius - radius*2;
     }
 
     @Override
