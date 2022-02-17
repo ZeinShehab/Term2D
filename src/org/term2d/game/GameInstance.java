@@ -7,7 +7,7 @@ import org.term2d.display.Display;
 import org.term2d.geom.Shape;
 
 public class GameInstance {
-    ArrayList<GameObject> gameObjects;
+    public final ArrayList<GameObject> gameObjects;
     public final Display display;
     public final Clock clock;
     
