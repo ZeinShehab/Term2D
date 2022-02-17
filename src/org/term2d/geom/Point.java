@@ -4,8 +4,8 @@ import org.term2d.game.GameObject;
 import org.term2d.physics.Vec2;
 
 public class Point extends GameObject implements Shape {
-    protected double x;
-    protected double y;
+    public double x;
+    public double y;
 
     private boolean fill;
 
@@ -33,36 +33,6 @@ public class Point extends GameObject implements Shape {
         return x == p.x && y == p.y;
     }
 
-    @Override
-    public double height() {
-        return 1;        
-    }
-
-    @Override
-    public double width() {
-        return 1;
-    }
-
-    @Override
-    public double maxX() {
-        return x + 1;
-    }
-
-    @Override
-    public double maxY() {
-        return y + 1;
-    }
-
-    @Override
-    public double minX() {
-        return x;
-    }
-
-    @Override
-    public double minY() {
-        return y;
-    }
-
     public void transform(Vec2 vel) {
         x += vel.getX();
         y += vel.getY();
@@ -74,7 +44,7 @@ public class Point extends GameObject implements Shape {
     }
 
     @Override
-    public void fill(boolean fill) {
+    public void setFill(boolean fill) {
         this.fill = fill;        
     }
 

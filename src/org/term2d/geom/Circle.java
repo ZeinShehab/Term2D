@@ -4,8 +4,8 @@ import org.term2d.game.GameObject;
 import org.term2d.physics.Vec2;
 
 public class Circle extends GameObject implements Shape {
-    public Vec2   center;
-    public double radius;
+    public Vec2 center;
+    public final double radius;
 
     private boolean fill;
 
@@ -13,16 +13,6 @@ public class Circle extends GameObject implements Shape {
         this.center = center;
         this.radius = radius;
         this.fill = true;
-    }
-
-    @Override
-    public double minX() {
-        return center.x - radius;
-    }
-
-    @Override
-    public double minY() {
-        return center.y - radius;
     }
 
     @Override
@@ -36,26 +26,6 @@ public class Circle extends GameObject implements Shape {
     } 
 
     @Override
-    public double height() {
-        return radius + radius;
-    }
-
-    @Override
-    public double width() {
-        return radius + radius;
-    }
-
-    @Override
-    public double maxX() {
-        return center.x + radius;
-    }
-
-    @Override
-    public double maxY() {
-        return center.y + radius;
-    }
-
-    @Override
     public void transform(Vec2 vel) {
         center.add(vel);
     } 
@@ -67,7 +37,7 @@ public class Circle extends GameObject implements Shape {
     }
 
     @Override
-    public void fill(boolean fill) {
+    public void setFill(boolean fill) {
         this.fill = fill;
     }
 

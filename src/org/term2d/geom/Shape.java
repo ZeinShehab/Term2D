@@ -5,23 +5,11 @@ public interface Shape {
 
     public boolean contains(Point p);
 
-    public double height();
-
-    public double width();
-
-    public double maxX();
-
-    public double maxY();
-
-    public double minX();
-    
-    public double minY();
-
-    public void transform(org.term2d.physics.Vec2 vel);
+    public void transform(org.term2d.physics.Vec2 vel); // TODO: neccessary?
 
     public boolean isBoundary(Point p);
 
-    public void fill(boolean fill);
+    public void setFill(boolean fill);                     // TODO: better fill checking
 
     public boolean fill();
 }

@@ -24,7 +24,6 @@ public class Display {
         this.HEIGHT  = height;
         this.display = new Pixel[WIDTH * HEIGHT];
 
-        clearConsole();
         clearDisplay();
     }
 
@@ -80,7 +79,7 @@ public class Display {
 
         if (showBoundaries) {
             Rectangle bounds = new Rectangle(0, 0, WIDTH, HEIGHT);
-            bounds.fill(false);
+            bounds.setFill(false);
             draw(bounds);
         }
         try {
@@ -110,11 +109,8 @@ public class Display {
         }
     }
 
-    public boolean outOfBounds(Shape s) {
-        Rectangle bounds = s.getBounds();
-        
-        return bounds.minX() < 0 || bounds.maxX() > WIDTH
-            || bounds.minY() < 0 || bounds.maxY() > HEIGHT;
+    public boolean outOfBounds(Point p) {
+        return p.x < 0 || p.x+1 > WIDTH || p.y < 0 || p.y+1 > HEIGHT;
     }
 
     public void draw(Shape s) {
@@ -126,8 +122,8 @@ public class Display {
             Point p = it.next();
 
             if (!outOfBounds(p) && s.contains(p)) {
-                if (s.fill() || (s.isBoundary(p) && !(s instanceof Point)))
-                    set((int) p.getX(), (int) p.getY(), Pixel.FORE);
+                if (s.fill() || s.isBoundary(p))
+                    set((int) p.x, (int) p.y, Pixel.FORE);
             }                
         }
     }

@@ -7,7 +7,7 @@ import org.term2d.iterator.RectangleIterator;
 import org.term2d.physics.Vec2;
 
 public class Rectangle extends GameObject implements Shape, Iterable<Point> {
-    public final Vec2 position;
+    public Vec2 position;
     public final double width;
     public final double height;
 
@@ -34,34 +34,13 @@ public class Rectangle extends GameObject implements Shape, Iterable<Point> {
         return p.x >= position.x && p.x <= maxX() && p.y >= position.y && p.y <= maxY();
     }
 
-    @Override
-    public double height() {
-        return height;
-    }
 
-    @Override
-    public double width() {
-        return width;
-    }
-
-    @Override
     public double maxX() {
         return position.x + width;
     }
 
-    @Override
     public double maxY() {
         return position.y + height;
-    }
-
-    @Override
-    public double minX() {
-        return position.x;
-    }
-
-    @Override
-    public double minY() {
-        return position.y;
     }
 
     @Override
@@ -89,7 +68,7 @@ public class Rectangle extends GameObject implements Shape, Iterable<Point> {
 	}
 
     @Override
-    public void fill(boolean fill) {
+    public void setFill(boolean fill) {
         this.fill = fill;        
     }
 
