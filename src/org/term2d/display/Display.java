@@ -13,8 +13,8 @@ import org.term2d.iterator.ImageIterator;
 import org.term2d.iterator.RectangleIterator;
 
 public class Display {
-    private final int WIDTH;
-    private final int HEIGHT;    
+    public final int WIDTH;
+    public final int HEIGHT;    
     
     private Pixel[] display;
     private boolean showBoundaries;
@@ -70,7 +70,7 @@ public class Display {
      * Uses 2-row compression algorithm I stole from tsoding daily on youtube
      * @throws IOException
      */
-    public void show() throws IOException {
+    public void show() {
         char[][] chars = {
             {' ', '_'},
             {'^', '@'}
@@ -83,15 +83,18 @@ public class Display {
             bounds.fill(false);
             draw(bounds);
         }
-
-        for (int y = 0; y < HEIGHT/2; y++) {
-            for (int x = 0; x < WIDTH; x++) {
-                Pixel t = display[(y*2 + 0)*WIDTH + x];
-                Pixel b = display[(y*2 + 1)*WIDTH + x];
-                row.write(chars[t.ordinal()][b.ordinal()]);
+        try {
+            for (int y = 0; y < HEIGHT/2; y++) {
+                for (int x = 0; x < WIDTH; x++) {
+                    Pixel t = display[(y*2 + 0)*WIDTH + x];
+                    Pixel b = display[(y*2 + 1)*WIDTH + x];
+                    row.write(chars[t.ordinal()][b.ordinal()]);
+                }
+                row.write('\n');
+                row.flush();
             }
-            row.write('\n');
-            row.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -99,16 +102,11 @@ public class Display {
         ImageIterator it = img.iterator();
 
         while (it.hasNext()) {
-            int index = it.next();
+            Pixel p = it.next();
             int j = it.colIndex() + x;
             int i = it.rowIndex() + y;
 
-            // TODO: more accurate shading
-            // TODO: Optimization: slow rendering speed 
-            Point p = new Point(j, i);
-            if (index < 2) 
-                p.fill(false);
-            draw(p);
+            set(j, i, p);
         }
     }
 
