@@ -13,7 +13,11 @@ public class Clock {
         this.FPS = 60;
     }
 
-    public void tick() throws InterruptedException {
-        TimeUnit.MICROSECONDS.sleep(1000*1000 / FPS);
+    public void tick() {
+        try {
+            TimeUnit.MICROSECONDS.sleep(1000*1000 / FPS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
