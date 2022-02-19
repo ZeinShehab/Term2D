@@ -44,11 +44,6 @@ public class Rectangle extends GameObject implements Shape, Iterable<Point> {
     }
 
     @Override
-    public void transform(Vec2 vel) {
-        position.add(vel);
-    }
-
-    @Override
     public boolean isBoundary(Point p) {
         return contains(p) && (p.x == position.x || p.y == position.y || p.x == maxX()-1 || p.y == maxY()-1);
     }

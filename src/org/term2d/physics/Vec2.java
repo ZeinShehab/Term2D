@@ -1,6 +1,6 @@
 package org.term2d.physics;
 
-import org.term2d.Epsilon;
+import org.term2d.GlobalConstants;
 import org.term2d.geom.Point;
 
 public class Vec2 {
@@ -193,7 +193,7 @@ public class Vec2 {
             return true;
 
         if (obj != null && obj instanceof Vec2) {
-            return equals((Vec2) obj, Epsilon.EPS);
+            return equals((Vec2) obj, GlobalConstants.EPS);
         }
         return false;
     }

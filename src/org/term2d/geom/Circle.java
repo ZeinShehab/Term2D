@@ -26,11 +26,6 @@ public class Circle extends GameObject implements Shape {
     } 
 
     @Override
-    public void transform(Vec2 vel) {
-        center.add(vel);
-    } 
-
-    @Override
     public boolean isBoundary(Point p) {
         double distance = center.distanceSq(new Vec2(p.x+0.5, p.y+0.5));
         return distance <= radius*radius && distance > radius*radius - radius*2;
