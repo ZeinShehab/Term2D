@@ -5,8 +5,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Arrays;
 
+import org.term2d.geom.Line;
 import org.term2d.geom.Point;
-import org.term2d.geom.Rectangle;
 import org.term2d.geom.Shape;
 import org.term2d.image.Image;
 import org.term2d.iterator.ImageIterator;
@@ -15,13 +15,26 @@ import org.term2d.iterator.RectangleIterator;
 public class Display {
     public final int WIDTH;
     public final int HEIGHT;    
+    public final Line[] BOUDARIES;
     
     private Pixel[] display;
     private boolean showBoundaries;
 
     public Display(int width, int height) {
-        this.WIDTH   = width;
-        this.HEIGHT  = height;
+        WIDTH   = width;
+        HEIGHT  = height;
+
+        Point topLeft     = new Point(0, 0);
+        Point topRight    = new Point(WIDTH - 1, 0);
+        Point bottomLeft  = new Point(0, HEIGHT - 1);
+        Point bottomRight = new Point(WIDTH-1, HEIGHT-1);
+        BOUDARIES = new Line[]{
+            new Line(topLeft, topRight),
+            new Line(topLeft, bottomLeft),
+            new Line(bottomLeft, bottomRight),
+            new Line(bottomRight, topRight)
+        };
+
         this.display = new Pixel[WIDTH * HEIGHT];
 
         clearDisplay();
@@ -77,11 +90,10 @@ public class Display {
 
         OutputStream row = new BufferedOutputStream(System.out);
 
-        if (showBoundaries) {
-            Rectangle bounds = new Rectangle(0, 0, WIDTH, HEIGHT);
-            bounds.setFill(false);
-            draw(bounds);
-        }
+        if (showBoundaries)
+            for (Line line : BOUDARIES)
+                draw(line);
+    
         try {
             for (int y = 0; y < HEIGHT/2; y++) {
                 for (int x = 0; x < WIDTH; x++) {
