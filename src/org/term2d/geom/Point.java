@@ -7,12 +7,9 @@ public class Point extends GameObject implements Shape {
     public double x;
     public double y;
 
-    private boolean fill;
-
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
-        this.fill = true;
     }
 
     public double getX() {
@@ -45,11 +42,11 @@ public class Point extends GameObject implements Shape {
 
     @Override
     public void setFill(boolean fill) {
-        this.fill = fill;        
+
     }
 
     @Override
     public boolean fill() {
-        return fill;
+        return true;
     }
 }
