@@ -1,4 +1,4 @@
-package org.term2d.game;
+package org.term2d.core;
 
 public class GameObject {
     protected GameInstance game;

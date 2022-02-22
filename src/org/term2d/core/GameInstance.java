@@ -1,17 +1,17 @@
-package org.term2d.game;
+package org.term2d.core;
 
 import java.util.ArrayList;
 
-import org.term2d.Clock;
 import org.term2d.display.Display;
 import org.term2d.geom.Shape;
 
 public class GameInstance {
     public final ArrayList<GameObject> gameObjects;
     public final Display display;
-    public final Clock clock;
-    
-    private boolean quit = false;
+
+    private final Clock clock;
+    private boolean quit    = false;
+    private boolean running = false;
 
     public GameInstance(int width, int height) {
         gameObjects = new ArrayList<>();
@@ -60,8 +60,11 @@ public class GameInstance {
     }
 
     public void run() {
-        new Thread(() -> {
-            mainLoop();
-        }).start();
+        if (!running) {
+            new Thread(() -> {
+                mainLoop();
+            }).start();
+            running = true;
+        }
     }
 }

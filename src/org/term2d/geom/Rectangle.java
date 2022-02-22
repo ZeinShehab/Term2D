@@ -2,9 +2,9 @@ package org.term2d.geom;
 
 import java.util.NoSuchElementException;
 
-import org.term2d.game.GameObject;
+import org.term2d.core.GameObject;
+import org.term2d.core.Vec2;
 import org.term2d.iterator.RectangleIterator;
-import org.term2d.physics.Vec2;
 
 public class Rectangle extends GameObject implements Shape, Iterable<Point> {
     public Vec2 position;

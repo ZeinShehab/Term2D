@@ -1,6 +1,5 @@
-package org.term2d.physics;
+package org.term2d.core;
 
-import org.term2d.GlobalConstants;
 import org.term2d.geom.Point;
 
 public class Vec2 {

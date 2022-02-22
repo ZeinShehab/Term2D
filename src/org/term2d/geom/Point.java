@@ -1,7 +1,7 @@
 package org.term2d.geom;
 
-import org.term2d.game.GameObject;
-import org.term2d.physics.Vec2;
+import org.term2d.core.GameObject;
+import org.term2d.core.Vec2;
 
 public class Point extends GameObject implements Shape {
     public double x;

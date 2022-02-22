@@ -1,11 +1,11 @@
 package org.term2d.geom;
 
-import org.term2d.GlobalConstants;
-import org.term2d.game.GameObject;
+import org.term2d.core.GameObject;
+import org.term2d.core.GlobalConstants;
 
 public class Line extends GameObject implements Shape {
-    private Point p1;
-    private Point p2;
+    public Point p1;
+    public Point p2;
 
     public Line(Point p1, Point p2) {
         this.p1 = p1;

@@ -1,11 +1,11 @@
 package org.term2d.geom;
 
-import org.term2d.game.GameObject;
+import org.term2d.core.GameObject;
 
 public class Triangle extends GameObject implements Shape {
-    private Point p1;
-    private Point p2;
-    private Point p3;
+    public Point p1;
+    public Point p2;
+    public Point p3;
 
     private boolean fill;
 

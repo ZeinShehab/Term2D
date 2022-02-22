@@ -1,21 +1,21 @@
-package org.term2d;
+package org.term2d.core;
 
 import java.util.concurrent.TimeUnit;
 
 public class Clock {
-    public final int FPS;
+    private final int fps;
 
     public Clock(int fps) {
-        this.FPS = fps;
+        this.fps = fps;
     }
 
     public Clock() {
-        this.FPS = 60;
+        this.fps = GlobalConstants.FPS;
     }
 
     public void tick() {
         try {
-            TimeUnit.MICROSECONDS.sleep(1000*1000 / FPS);
+            TimeUnit.MICROSECONDS.sleep(1000*1000 / fps);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

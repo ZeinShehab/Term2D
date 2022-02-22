@@ -1,6 +1,6 @@
 package org.term2d.geom;
 
-import org.term2d.physics.Vec2;
+import org.term2d.core.Vec2;
 
 public class Square extends Rectangle {
     public Square(double x, double y, double size) {
