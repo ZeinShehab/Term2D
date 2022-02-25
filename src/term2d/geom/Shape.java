@@ -1,13 +1,20 @@
 package term2d.geom;
 
-public interface Shape {
-    public Rectangle getBounds();
+import term2d.core.GameObject;
 
-    public boolean contains(Point p);
+public abstract class Shape extends GameObject {
+    public boolean fill = true;
+    public boolean visible = true;
 
-    public boolean isBoundary(Point p);
+    public abstract Rectangle getBounds();
 
-    public void setFill(boolean fill);
+    public abstract boolean contains(Point p);
 
-    public boolean fill();
+    public abstract boolean isBoundary(Point p);
+
+    @Override
+    public void update() {
+        if (visible)
+            game.display.draw(this);
+    }
 }

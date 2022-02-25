@@ -1,19 +1,14 @@
 package term2d.geom;
 
-import term2d.core.GameObject;
-
-public class Triangle extends GameObject implements Shape {
+public class Triangle extends Shape {
     public Point p1;
     public Point p2;
     public Point p3;
-
-    private boolean fill;
 
     public Triangle(Point p1, Point p2, Point p3) {
         this.p1 = p1;
         this.p2 = p2;
         this.p3 = p3;
-        fill = true;
     }
 
     @Override
@@ -50,15 +45,5 @@ public class Triangle extends GameObject implements Shape {
         Line l2 = new Line(p2, p3);
         Line l3 = new Line(p3, p1);
         return l1.contains(p, 1) || l2.contains(p, 1) || l3.contains(p, 1);
-    }
-
-    @Override
-    public void setFill(boolean fill) {
-        this.fill = fill;        
-    }
-
-    @Override
-    public boolean fill() {
-        return fill;
     }
 }

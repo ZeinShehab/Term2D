@@ -134,7 +134,7 @@ public class Display {
             Point p = it.next();
 
             if (!outOfBounds(p) && s.contains(p)) {
-                if (s.fill() || s.isBoundary(p))
+                if (s.fill || s.isBoundary(p))
                     set((int) p.x, (int) p.y, Pixel.FORE);
             }                
         }

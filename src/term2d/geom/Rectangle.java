@@ -2,22 +2,18 @@ package term2d.geom;
 
 import java.util.NoSuchElementException;
 
-import term2d.core.GameObject;
 import term2d.core.Vec2;
 import term2d.iterator.RectangleIterator;
 
-public class Rectangle extends GameObject implements Shape, Iterable<Point> {
+public class Rectangle extends Shape implements Iterable<Point> {
     public Vec2 position;
     public final double width;
     public final double height;
-
-    private boolean fill;
 
     public Rectangle(Vec2 pos, double width, double height) {
         this.position = pos;
         this.width  = width;
         this.height = height;
-        this.fill = true;
     }
 
     public Rectangle(double x, double y, double width, double height) {
@@ -61,16 +57,6 @@ public class Rectangle extends GameObject implements Shape, Iterable<Point> {
 
         return !(width < 0 || height < 0);
 	}
-
-    @Override
-    public void setFill(boolean fill) {
-        this.fill = fill;        
-    }
-
-    @Override
-    public boolean fill() {
-        return fill;
-    }
 
     @Override
     public RectangleIterator iterator() {

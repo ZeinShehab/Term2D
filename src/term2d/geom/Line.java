@@ -1,9 +1,8 @@
 package term2d.geom;
 
-import term2d.core.GameObject;
 import term2d.core.GlobalConstants;
 
-public class Line extends GameObject implements Shape {
+public class Line extends Shape {
     public Point p1;
     public Point p2;
 
@@ -75,15 +74,5 @@ public class Line extends GameObject implements Shape {
     @Override
     public boolean isBoundary(Point p) {
         return contains(p);
-    }
-
-    @Override
-    public void setFill(boolean fill) {
-
-    }
-
-    @Override
-    public boolean fill() {
-        return true;
     }
 }

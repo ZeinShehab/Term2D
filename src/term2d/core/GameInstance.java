@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import term2d.display.Display;
-import term2d.geom.Shape;
 
 public class GameInstance {
     public final ArrayList<GameObject> gameObjects;
@@ -28,8 +27,6 @@ public class GameInstance {
 
     private void updateObjects() {
         for (GameObject gameObject : gameObjects) {
-            if (gameObject instanceof Shape)
-                display.draw((Shape) gameObject);
             gameObject.update();
         }
     }
@@ -80,7 +77,7 @@ public class GameInstance {
             display.clearDisplay();
 
             updateObjects();
-
+            
             display.show();
 
             clock.tick();

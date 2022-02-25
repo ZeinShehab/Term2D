@@ -1,18 +1,14 @@
 package term2d.geom;
 
-import term2d.core.GameObject;
 import term2d.core.Vec2;
 
-public class Circle extends GameObject implements Shape {
+public class Circle extends Shape {
     public Vec2 center;
     public final double radius;
-
-    private boolean fill;
 
     public Circle(Vec2 center, double radius) {
         this.center = center;
         this.radius = radius;
-        this.fill = true;
     }
 
     @Override
@@ -29,15 +25,5 @@ public class Circle extends GameObject implements Shape {
     public boolean isBoundary(Point p) {
         double distance = center.distanceSq(new Vec2(p.x+0.5, p.y+0.5));
         return distance <= radius*radius && distance > radius*radius - radius*2;
-    }
-
-    @Override
-    public void setFill(boolean fill) {
-        this.fill = fill;
-    }
-
-    @Override
-    public boolean fill() {
-        return fill;
     }
 }

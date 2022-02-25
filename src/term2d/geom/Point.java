@@ -1,9 +1,8 @@
 package term2d.geom;
 
-import term2d.core.GameObject;
 import term2d.core.Vec2;
 
-public class Point extends GameObject implements Shape {
+public class Point extends Shape {
     public double x;
     public double y;
 
@@ -38,15 +37,5 @@ public class Point extends GameObject implements Shape {
     @Override
     public boolean isBoundary(Point p) {
         return p.x == x && p.y == p.y;
-    }
-
-    @Override
-    public void setFill(boolean fill) {
-
-    }
-
-    @Override
-    public boolean fill() {
-        return true;
     }
 }
