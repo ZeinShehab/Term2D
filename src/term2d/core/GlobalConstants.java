@@ -1,4 +1,4 @@
-package org.term2d.core;
+package term2d.core;
 
 public class GlobalConstants {
     public static final int    FPS        = 60;

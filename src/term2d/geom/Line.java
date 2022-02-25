@@ -1,7 +1,7 @@
-package org.term2d.geom;
+package term2d.geom;
 
-import org.term2d.core.GameObject;
-import org.term2d.core.GlobalConstants;
+import term2d.core.GameObject;
+import term2d.core.GlobalConstants;
 
 public class Line extends GameObject implements Shape {
     public Point p1;

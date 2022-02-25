@@ -1,11 +1,11 @@
-package org.term2d.core;
+package term2d.core;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.term2d.display.Display;
-import org.term2d.geom.Shape;
+import term2d.display.Display;
+import term2d.geom.Shape;
 
 public class GameInstance {
     public final ArrayList<GameObject> gameObjects;

@@ -1,6 +1,6 @@
-package org.term2d.geom;
+package term2d.geom;
 
-import org.term2d.core.GameObject;
+import term2d.core.GameObject;
 
 public class Triangle extends GameObject implements Shape {
     public Point p1;

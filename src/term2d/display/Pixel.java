@@ -1,4 +1,4 @@
-package org.term2d.display;
+package term2d.display;
 
 public enum Pixel {
     BACK,

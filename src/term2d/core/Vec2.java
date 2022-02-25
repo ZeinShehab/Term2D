@@ -1,6 +1,6 @@
-package org.term2d.core;
+package term2d.core;
 
-import org.term2d.geom.Point;
+import term2d.geom.Point;
 
 public class Vec2 {
     public double x;

@@ -1,4 +1,4 @@
-package org.term2d.geom;
+package term2d.geom;
 
 public interface Shape {
     public Rectangle getBounds();

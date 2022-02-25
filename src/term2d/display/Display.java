@@ -1,16 +1,16 @@
-package org.term2d.display;
+package term2d.display;
 
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Arrays;
 
-import org.term2d.geom.Line;
-import org.term2d.geom.Point;
-import org.term2d.geom.Shape;
-import org.term2d.image.Image;
-import org.term2d.iterator.ImageIterator;
-import org.term2d.iterator.RectangleIterator;
+import term2d.geom.Line;
+import term2d.geom.Point;
+import term2d.geom.Shape;
+import term2d.image.Image;
+import term2d.iterator.ImageIterator;
+import term2d.iterator.RectangleIterator;
 
 public class Display {
     public final int WIDTH;
